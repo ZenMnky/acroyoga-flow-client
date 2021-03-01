@@ -1,0 +1,29 @@
+#header {
+    color: black;
+}
+
+#header a {
+    text-decoration: none;
+}
+
+#header a:visited {
+    color: black;
+}
+
+#header a:hover {
+    text-decoration: underline;
+}
+
+nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 10%;
+}
+
+nav a {
+    padding: 0 5px;
+}
+
+
+

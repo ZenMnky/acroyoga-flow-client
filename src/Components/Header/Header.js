@@ -1,16 +1,17 @@
 import React from 'react'
-// import {NavLink} from 'react-router-dom'
+import {NavLink, Link} from 'react-router-dom';
+import './Header.css';
 
 export default function Header() {
     return (
         <section id='header'>
-            <h1>AcroYoga Flow</h1>
+            <Link to='/'>
+                <h1>AcroYoga Flow</h1>  
+            </Link>
             <nav>
-                <ul>
-                    <li>About</li>
-                    <li>Flows</li>
-                    <li>Create Flow</li>
-                </ul>
+                <NavLink to='/about'>About</NavLink>
+                <NavLink to='/flows'>Flows</NavLink>
+                <NavLink to='/create/flow'>Create Flow</NavLink>   
             </nav>
         </section>
     )
