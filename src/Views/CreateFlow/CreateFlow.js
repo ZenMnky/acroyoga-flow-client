@@ -1,37 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './CreateFlow.css';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';    
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
 import {acroYogaData} from '../../store';
 
-console.log('acroYogaData: ', acroYogaData)
+/**
+ * reference: drag and drop tutorial
+ * https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/
+ */
 
 export default function CreateFlow() {
+    const [acroElements, updateAcroElements ]  = useState(acroYogaData);
+
+    function handleOnDragEnd(result) {
+        if (!result.destination) return;
+    
+        const items = Array.from(acroElements);
+        const [reorderedItem] = items.splice(result.source.index, 1);
+        items.splice(result.destination.index, 0, reorderedItem);
+    
+        updateAcroElements(items);
+      }
+
     return (
-        <article id='createFlowView' className='css-createFlowView' >
-            <h1>Create Flow</h1>
-            <div id='create-flow_draggable-list' className='draggable-list_wrapper'>
-                <div className='draggable_item'>
-                    <span className='draggable_item-text'>List Item 1</span>
-                    <div className='draggable_item-icon'>
-                        <FontAwesomeIcon icon={faBars} className='fa' />
-                    </div>
-                </div>
-                <div className='draggable_item'>
-                    <span className='draggable_item-text'>List Item 2</span>
-                    <FontAwesomeIcon icon={faBars} className='fa' />
-                </div>
-                <div className='draggable_item'>
-                    <span className='draggable_item-text'>List Item 3</span>
-                    <FontAwesomeIcon icon={faBars} className='fa' />
-                </div>
-                <div className='draggable_item'>
-                    <span className='draggable_item-text'>List Item 4</span>
-                    <FontAwesomeIcon icon={faBars} className='fa' />
-                </div>
-            </div>
-            
-        </article >
+        <div className="App">
+            <header className="App-header">
+                <h1>Create Acro Flow</h1>
+                <DragDropContext onDragEnd={handleOnDragEnd}>
+                <Droppable droppableId="characters">
+                    {(provided) => (
+                    <ul className="characters" 
+                        {...provided.droppableProps} 
+                        ref={provided.innerRef}
+                    >
+                        {acroElements.map(({id, name, thumb}, index) => {
+                        return (
+                            <Draggable key={id} draggableId={id} index={index}>
+                            {(provided) => (
+                                <li 
+                                    ref={provided.innerRef} 
+                                    {...provided.draggableProps} 
+                                    {...provided.dragHandleProps}
+                                >
+                                <div className="characters-thumb">
+                                    <img src={thumb} alt={`${name} Thumb`} />
+                                </div>
+                                <p>
+                                    { name }
+                                </p>
+                                </li>
+                            )}
+                            </Draggable>
+                        );
+                        })}
+                        {provided.placeholder}
+                    </ul>
+                    )}
+                </Droppable>
+                </DragDropContext>
+            </header>
+        </div>
     )
 }
