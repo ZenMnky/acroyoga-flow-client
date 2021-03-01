@@ -15,12 +15,12 @@
   }
   
 
-.characters {
+.acro-flow-elements {
     list-style: none;
     padding-left: 0;
   }
   
-  .characters li {
+  .acro-flow-elements li {
     display: flex;
     align-items: center;
     border: solid 2px #d0d0d0;
@@ -29,13 +29,13 @@
     margin-bottom: 1em;
   }
   
-  .characters p {
+  .acro-flow-elements p {
     max-width: none;
     font-weight: bold;
     margin: 0;
   }
   
-  .characters-thumb {
+  .acro-flow-elements-thumb {
     overflow: hidden;
     flex-shrink: 0;
     width: 4em;
@@ -45,7 +45,7 @@
     margin-right: .5em;
   }
   
-  .characters-thumb img {
+  .acro-flow-elements-thumb img {
     display: block;
     width: 100%;
     height: auto;

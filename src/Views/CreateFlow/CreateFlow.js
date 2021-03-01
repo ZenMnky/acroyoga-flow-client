@@ -26,9 +26,9 @@ export default function CreateFlow() {
             <header className="App-header">
                 <h1>Create Acro Flow</h1>
                 <DragDropContext onDragEnd={handleOnDragEnd}>
-                <Droppable droppableId="characters">
+                <Droppable droppableId="acro-flow-elements">
                     {(provided) => (
-                    <ul className="characters" 
+                    <ul className="acro-flow-elements" 
                         {...provided.droppableProps} 
                         ref={provided.innerRef}
                     >
@@ -41,7 +41,7 @@ export default function CreateFlow() {
                                     {...provided.draggableProps} 
                                     {...provided.dragHandleProps}
                                 >
-                                <div className="characters-thumb">
+                                <div className="acro-flow-elements-thumb">
                                     <img src={thumb} alt={`${name} Thumb`} />
                                 </div>
                                 <p>

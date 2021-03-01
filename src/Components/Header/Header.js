@@ -9,7 +9,6 @@ export default function Header() {
                 <h1>AcroYoga Flow</h1>  
             </Link>
             <nav>
-                <NavLink to='/about'>About</NavLink>
                 <NavLink to='/flows'>Flows</NavLink>
                 <NavLink to='/create/flow'>Create Flow</NavLink>   
             </nav>
