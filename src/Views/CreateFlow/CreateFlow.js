@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './CreateFlow.css';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';    
-import {acroYogaData} from '../../store';
+import {acroYogaElements} from '../../store';
+import FlowElements from '../../Components/FlowElements/FlowElements';
 
 /**
  * reference: drag and drop tutorial
@@ -9,7 +10,7 @@ import {acroYogaData} from '../../store';
  */
 
 export default function CreateFlow() {
-    const [acroElements, updateAcroElements ]  = useState(acroYogaData);
+    const [acroElements, updateAcroElements ]  = useState(acroYogaElements);
 
     function handleOnDragEnd(result) {
         if (!result.destination) return;
@@ -25,6 +26,7 @@ export default function CreateFlow() {
         <div className="App">
             <header className="App-header">
                 <h1>Create Acro Flow</h1>
+                <FlowElements />
                 <DragDropContext onDragEnd={handleOnDragEnd}>
                 <Droppable droppableId="acro-flow-elements">
                     {(provided) => (
