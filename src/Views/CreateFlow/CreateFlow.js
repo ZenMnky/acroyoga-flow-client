@@ -12,6 +12,7 @@ import FlowElements from '../../Components/FlowElements/FlowElements';
 import ContentContainer from '../../Components/FlowDesign/ContentContainer';
 import DescriptionSection from '../../Components/DescriptionSection/DescriptionSection';
 import FlowDesign from '../../Components/FlowDesign/FlowDesign';
+import SubmitFlow from '../../Components/FlowDesign/SubmitFlow';
 
 export default function CreateFlow() {
     const [acroElements, updateAcroElements ]  = useState(acroYogaElements);
@@ -36,7 +37,7 @@ export default function CreateFlow() {
                 </DescriptionSection>
                 <FlowElements />
                 <FlowDesign handleOnDragEnd={handleOnDragEnd} acroElements={acroElements} />
-               
+               <SubmitFlow />
         </ContentContainer>
         
     )
