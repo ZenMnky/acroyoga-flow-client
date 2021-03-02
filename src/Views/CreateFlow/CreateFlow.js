@@ -9,7 +9,7 @@ import {acroYogaElements} from '../../store';
 import FlowElements from '../../Components/FlowElements/FlowElements';
 
 // styled components
-import CreateFlowContainer from '../../Components/FlowDesign/CreateFlowContainer';
+import ContentContainer from '../../Components/FlowDesign/ContentContainer';
 import DescriptionSection from '../../Components/DescriptionSection/DescriptionSection';
 import FlowDesign from '../../Components/FlowDesign/FlowDesign';
 
@@ -27,7 +27,7 @@ export default function CreateFlow() {
       }
 
     return (
-        <CreateFlowContainer>            
+        <ContentContainer>            
                 <h1>Create Acro Flow</h1>
                 <DescriptionSection>
                     <p>Use the listed elements to add cards to the design area.</p>
@@ -37,7 +37,7 @@ export default function CreateFlow() {
                 <FlowElements />
                 <FlowDesign handleOnDragEnd={handleOnDragEnd} acroElements={acroElements} />
                
-        </CreateFlowContainer>
+        </ContentContainer>
         
     )
 }

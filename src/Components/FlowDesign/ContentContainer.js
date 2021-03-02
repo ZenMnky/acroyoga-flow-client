@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const CreateFlowContainer = styled.section`
+const ContentContainer = styled.article`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,4 +9,4 @@ const CreateFlowContainer = styled.section`
     text-align: center;
 `;
 
-export default CreateFlowContainer;
+export default ContentContainer;

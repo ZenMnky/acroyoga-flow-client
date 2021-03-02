@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default styled.header`
+const FooterContainer = styled.footer`
     color: black;
     display: flex;
     flex-direction: column;
@@ -21,3 +21,5 @@ export default styled.header`
         text-decoration: underline;
     }
 `;
+
+export default FooterContainer;

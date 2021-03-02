@@ -1,9 +1,10 @@
 import React from 'react'
+import FooterContainer from './FooterContainer'
 
 export default function Footer() {
     return (
-        <section id='footer'>
+        <FooterContainer>
             <p>Footer</p>
-        </section>
+        </FooterContainer>
     )
 }
