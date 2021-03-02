@@ -1,18 +1,17 @@
+/**
+ * reference: drag and drop tutorial
+ * https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/
+ */
+
 import React, { useState } from 'react';
-import './CreateFlow.css';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';    
 import {acroYogaElements} from '../../store';
+
 import FlowElements from '../../Components/FlowElements/FlowElements';
 
 // styled components
 import CreateFlowContainer from '../../Components/FlowDesign/CreateFlowContainer';
 import DescriptionSection from '../../Components/DescriptionSection/DescriptionSection';
 import FlowDesign from '../../Components/FlowDesign/FlowDesign';
-
-/**
- * reference: drag and drop tutorial
- * https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/
- */
 
 export default function CreateFlow() {
     const [acroElements, updateAcroElements ]  = useState(acroYogaElements);
