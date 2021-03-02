@@ -1,4 +1,4 @@
-export const acroYogaData = [
+export const acroYogaElements = [
     {
         id: 'straddle-bat',
         name: 'Straddle Bat',

@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
-import './CreateFlow.css';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';    
-import {acroYogaData} from '../../store';
-
 /**
  * reference: drag and drop tutorial
  * https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/
  */
 
+import React, { useState } from 'react';
+import {acroYogaElements} from '../../store';
+
+import FlowElements from '../../Components/FlowElements/FlowElements';
+
+// styled components
+import ContentContainer from '../../Components/FlowDesign/ContentContainer';
+import DescriptionSection from '../../Components/DescriptionSection/DescriptionSection';
+import FlowDesign from '../../Components/FlowDesign/FlowDesign';
+
 export default function CreateFlow() {
-    const [acroElements, updateAcroElements ]  = useState(acroYogaData);
+    const [acroElements, updateAcroElements ]  = useState(acroYogaElements);
 
     function handleOnDragEnd(result) {
         if (!result.destination) return;
@@ -22,42 +27,17 @@ export default function CreateFlow() {
       }
 
     return (
-        <div className="App">
-            <header className="App-header">
+        <ContentContainer>            
                 <h1>Create Acro Flow</h1>
-                <DragDropContext onDragEnd={handleOnDragEnd}>
-                <Droppable droppableId="acro-flow-elements">
-                    {(provided) => (
-                    <ul className="acro-flow-elements" 
-                        {...provided.droppableProps} 
-                        ref={provided.innerRef}
-                    >
-                        {acroElements.map(({id, name, thumb}, index) => {
-                        return (
-                            <Draggable key={id} draggableId={id} index={index}>
-                            {(provided) => (
-                                <li 
-                                    ref={provided.innerRef} 
-                                    {...provided.draggableProps} 
-                                    {...provided.dragHandleProps}
-                                >
-                                <div className="acro-flow-elements-thumb">
-                                    <img src={thumb} alt={`${name} Thumb`} />
-                                </div>
-                                <p>
-                                    { name }
-                                </p>
-                                </li>
-                            )}
-                            </Draggable>
-                        );
-                        })}
-                        {provided.placeholder}
-                    </ul>
-                    )}
-                </Droppable>
-                </DragDropContext>
-            </header>
-        </div>
+                <DescriptionSection>
+                    <p>Use the listed elements to add cards to the design area.</p>
+                    <p>Drag and drop cards to order them.</p>
+                    <p>Once the sequence is in the desired order, save your flow with a catchy title.</p>
+                </DescriptionSection>
+                <FlowElements />
+                <FlowDesign handleOnDragEnd={handleOnDragEnd} acroElements={acroElements} />
+               
+        </ContentContainer>
+        
     )
 }
