@@ -18,7 +18,6 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
     padding-left: 0;
   }
-
 `;
 
 function App() {

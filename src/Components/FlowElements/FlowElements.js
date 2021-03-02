@@ -1,16 +1,18 @@
 import React from 'react';
 import { acroYogaElements } from '../../store';
 
+// styled components
+import AcroYogaElementButton from '../acroYogaElementButton/AcroYogaElementButton';
+
 
 export default function FlowElements() {
     // get a list of all the available acroyoga elements
-    
     // for each item, generate a corresponding button
     let acroYogaElementButtons = acroYogaElements.map( acroElement => {
         return(
-            <button key={acroElement.id}>
-                {acroElement.name}
-            </button>
+            <AcroYogaElementButton key={acroElement.id}>
+                    {acroElement.name}
+            </AcroYogaElementButton>
         )
     })
     // when the button is clicked, 
