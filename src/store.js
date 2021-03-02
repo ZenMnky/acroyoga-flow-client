@@ -40,7 +40,7 @@ export const acroYogaData = [
         thumb: 'https://i.ibb.co/tQTvxS7/Reverse-Shoudlerstand-Split.png'
     },
     {
-        id: 'shoudlerstand-piked-straddle',
+        id: 'shoulderstand-piked-straddle',
         name: 'Shoulderstand (piked straddle)',
         thumb: 'https://i.ibb.co/kyBYRVb/Shouderstand-Piked-Straddle.png'
     },
