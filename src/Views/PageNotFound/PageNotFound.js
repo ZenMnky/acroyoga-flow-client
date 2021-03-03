@@ -3,7 +3,7 @@ import ContentContainer from '../../Components/FlowDesign/ContentContainer'
 
 export default function PageNotFound() {
     return (
-        <ContentContainer>
+        <ContentContainer fullView>
             <h1>Page Not Found</h1>
         </ContentContainer>
     )

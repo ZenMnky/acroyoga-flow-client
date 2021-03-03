@@ -3,7 +3,7 @@ import ContentContainer from '../../Components/FlowDesign/ContentContainer'
 
 export default function LandingPage() {
     return (
-        <ContentContainer>
+        <ContentContainer fullView>
              <h1>Landing Page</h1>
             <div>
                 <h2>What the app does and how to get started</h2>
