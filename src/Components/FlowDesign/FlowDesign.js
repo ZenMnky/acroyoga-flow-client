@@ -1,3 +1,4 @@
+import cuid from 'cuid';
 import React from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
@@ -7,7 +8,7 @@ import AcroFlowElementsThumb from './AcroFlowElementsThumb';
 
 export default function FlowDesign(props) {
     let {handleOnDragEnd, acroElements} = props;
-
+    
     return (
         <section>
             <h2>AcroYoga Flow Design</h2>
@@ -19,6 +20,7 @@ export default function FlowDesign(props) {
                                 ref={provided.innerRef}
                             >
                                 {acroElements.map(({id, name, thumb}, index) => {
+                                    
                                     return (
                                         <Draggable key={id} draggableId={id} index={index}>
                                             {(provided) => (

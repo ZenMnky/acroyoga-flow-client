@@ -7,6 +7,9 @@ import React, { useState } from 'react';
 import {acroYogaElements} from '../../store';
 
 import FlowElements from '../../Components/FlowElements/FlowElements';
+// test data used to develop making custom flows
+import acroYogaFlow from '../../testAcroYogaFlowArrays';
+
 
 // styled components
 import ContentContainer from '../../Components/FlowDesign/ContentContainer';
@@ -14,17 +17,20 @@ import DescriptionSection from '../../Components/DescriptionSection/DescriptionS
 import FlowDesign from '../../Components/FlowDesign/FlowDesign';
 import SubmitFlow from '../../Components/FlowDesign/SubmitFlow';
 
+
+
 export default function CreateFlow() {
     const [acroElements, updateAcroElements ]  = useState(acroYogaElements);
+    const [selectedAcroYogaElements, setSelectedAcroYogaElements] = useState(acroYogaFlow.flowSequence);
 
     function handleOnDragEnd(result) {
         if (!result.destination) return;
     
-        const items = Array.from(acroElements);
+        const items = Array.from(selectedAcroYogaElements);
         const [reorderedItem] = items.splice(result.source.index, 1);
         items.splice(result.destination.index, 0, reorderedItem);
     
-        updateAcroElements(items);
+        setSelectedAcroYogaElements(items);
       }
 
     return (
@@ -36,7 +42,7 @@ export default function CreateFlow() {
                     <p>Once the sequence is in the desired order, save your flow with a catchy title.</p>
                 </DescriptionSection>
                 <FlowElements />
-                <FlowDesign handleOnDragEnd={handleOnDragEnd} acroElements={acroElements} />
+                <FlowDesign handleOnDragEnd={handleOnDragEnd} acroElements={selectedAcroYogaElements} />
                <SubmitFlow />
         </ContentContainer>
         
