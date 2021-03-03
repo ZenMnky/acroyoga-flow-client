@@ -3,9 +3,9 @@ import styled from "styled-components";
 const GifImg = styled.img`
     border-radius: 10px;
     border: none;
-    min-width: 25vw;
+    min-width: 75vw;
 
-    @media (min-width: 700px){
+    @media (min-width: 768px){
         min-width: 500px;
     }
 `;
