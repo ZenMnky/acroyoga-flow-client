@@ -27,11 +27,11 @@ export default function CreateFlow() {
     function handleOnDragEnd(result) {
         if (!result.destination) return;
     
-        const items = Array.from(selectedAcroYogaElements);
-        const [reorderedItem] = items.splice(result.source.index, 1);
-        items.splice(result.destination.index, 0, reorderedItem);
+        const acroYogaFlowDraft = Array.from(selectedAcroYogaElements);
+        const [reorderedAcroYogaFlowDraft] = acroYogaFlowDraft.splice(result.source.index, 1);
+        acroYogaFlowDraft.splice(result.destination.index, 0, reorderedAcroYogaFlowDraft);
     
-        setSelectedAcroYogaElements(items);
+        setSelectedAcroYogaElements(acroYogaFlowDraft);
       }
 
     return (

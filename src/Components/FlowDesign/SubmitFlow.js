@@ -1,4 +1,9 @@
 import React from 'react'
+import faker from 'faker';
+import TextInputField from './TextInputField';
+import FlexSection from './FlexSection';
+import Button from './Button';
+import Form from './FormContainer';
 
 export default function SubmitFlow(props) {
     const {flowTitle, setFlowTitle} = props;
@@ -13,19 +18,33 @@ export default function SubmitFlow(props) {
         setFlowTitle('')
     }
 
+    const handleRandomTitle = (e) => {
+        e.preventDefault();
+        setFlowTitle(faker.random.words(3).toLowerCase());
+
+    }
+
     return (
         <section>
-            <form>
+            <Form>
                 <label htmlFor='flow-title'>Flow Title</label>
                 <br />
-                <input type='text' name='flow-title' value={flowTitle} onChange={e => setFlowTitle(e.target.value)} required />
-
-                <div>
-                    <button onClick={e => handleSubmit(e)}>Save Flow</button>{' '}
-                    <button onClick={e => handleReset(e)}>Reset</button>
-                </div>
-            
-            </form>
+                <TextInputField type='text' name='flow-title' value={flowTitle} onChange={e => setFlowTitle(e.target.value)} required />
+               
+                <FlexSection>
+                    <Button type='submit' onClick={e => handleSubmit(e)}>
+                        Save Flow   
+                    </Button>
+                    <Button type='reset' onClick={e => handleReset(e)}>
+                        Reset
+                    </Button>
+                    <Button type='button' onClick={e => handleRandomTitle(e)}>
+                        Random Title
+                    </Button>
+              
+                </FlexSection>   
+            </Form>
+                         
             
         </section>
     )
