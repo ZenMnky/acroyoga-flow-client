@@ -32,8 +32,8 @@ export default function CreateFlow() {
         acroYogaFlowDraft.splice(result.destination.index, 0, reorderedAcroYogaFlowDraft);
     
         setSelectedAcroYogaElements(acroYogaFlowDraft);
-      }
-
+    }
+    
     return (
         <ContentContainer>            
                 <h1>Create Acro Flow</h1>
@@ -42,7 +42,7 @@ export default function CreateFlow() {
                     <p>Drag and drop cards to order them.</p>
                     <p>Once the sequence is in the desired order, save your flow with a catchy title.</p>
                 </DescriptionSection>
-                <FlowElements />
+                <FlowElements selectedAcroYogaElements={selectedAcroYogaElements} setSelectedAcroYogaElements={x => setSelectedAcroYogaElements(x)} />
                 <FlowDesign handleOnDragEnd={handleOnDragEnd} acroElements={selectedAcroYogaElements} />
                <SubmitFlow flowTitle={flowTitle} setFlowTitle={setFlowTitle} />
         </ContentContainer>
