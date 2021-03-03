@@ -33,14 +33,14 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <Header />
+      <SavedFlowsContext.Provider value={{savedFlows, setSavedFlows}}>
         <Switch>
           <Route exact path='/' component={LandingPage} />
-          <SavedFlowsContext.Provider value={{savedFlows, setSavedFlows}}>
-            <Route exact path='/create/flow' component={CreateFlow} />
-            <Route path='/view/flows' component={ViewFlows} />
-          </SavedFlowsContext.Provider>
+          <Route exact path='/create/flow' component={CreateFlow} />
+          <Route path='/view/flows' component={ViewFlows} />
           <Route component={PageNotFound} />
         </Switch>
+        </SavedFlowsContext.Provider>
       <Footer />
     </div>
   );

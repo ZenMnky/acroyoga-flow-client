@@ -3,12 +3,13 @@
  * https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/
  */
 
-import React, { useState } from 'react';
+// core
+import React, { useState, useContext } from 'react';
+import {useHistory} from 'react-router-dom';
+import { SavedFlowsContext } from '../../Components/App/App';
 
+// components
 import FlowElements from '../../Components/FlowElements/FlowElements';
-// test data used to develop making custom flows
-import acroYogaFlow from '../../testAcroYogaFlowArrays';
-
 
 // styled components
 import ContentContainer from '../../Components/FlowDesign/ContentContainer';
@@ -16,12 +17,40 @@ import DescriptionSection from '../../Components/DescriptionSection/DescriptionS
 import FlowDesign from '../../Components/FlowDesign/FlowDesign';
 import SubmitFlow from '../../Components/FlowDesign/SubmitFlow';
 
+// test data used to develop making custom flows
+import acroYogaFlow from '../../testAcroYogaFlowArrays';
+
 
 
 export default function CreateFlow() {
-    
+    const { savedFlows, setSavedFlows } = useContext(SavedFlowsContext);
     const [selectedAcroYogaElements, setSelectedAcroYogaElements] = useState(acroYogaFlow.flowSequence);
     const [flowTitle, setFlowTitle] = useState('')
+    const history = useHistory();
+
+    const handleSaveFlow = () => {
+        console.log('handleSaveFlow fired')
+        
+        // construct the new flow object
+        let newFlow = {
+            flowTitle: flowTitle.trim(),
+            flowSequence: [...selectedAcroYogaElements]
+        };
+    
+        // copy existing flows
+        let savedFlowsCopy = [...savedFlows];
+
+        // add new flow
+        savedFlowsCopy.unshift(newFlow);
+
+        // update context
+        setSavedFlows(savedFlowsCopy);
+
+        // reroute to the view flows page
+        history.push('/view/flows');
+
+        
+    }
 
     function handleOnDragEnd(result) {
         if (!result.destination) return;
@@ -41,9 +70,20 @@ export default function CreateFlow() {
                     <p>Drag and drop cards to order them.</p>
                     <p>Once the sequence is in the desired order, save your flow with a catchy title.</p>
                 </DescriptionSection>
-                <FlowElements selectedAcroYogaElements={selectedAcroYogaElements} setSelectedAcroYogaElements={x => setSelectedAcroYogaElements(x)} />
-                <FlowDesign handleOnDragEnd={handleOnDragEnd} acroElements={selectedAcroYogaElements} />
-               <SubmitFlow flowTitle={flowTitle} setFlowTitle={setFlowTitle} setSelectedAcroYogaElements={x => setSelectedAcroYogaElements(x)} />
+                <FlowElements 
+                    selectedAcroYogaElements={selectedAcroYogaElements} 
+                    setSelectedAcroYogaElements={x => setSelectedAcroYogaElements(x)} 
+                />
+                <FlowDesign 
+                    handleOnDragEnd={handleOnDragEnd} 
+                    acroElements={selectedAcroYogaElements} 
+                />
+               <SubmitFlow 
+                    flowTitle={flowTitle} 
+                    setFlowTitle={setFlowTitle} 
+                    setSelectedAcroYogaElements={x => setSelectedAcroYogaElements(x)}
+                    handleSaveFlow={handleSaveFlow}
+                />
         </ContentContainer>
         
     )
