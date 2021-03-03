@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-export default function SubmitFlow() {
-    const [flowTitle, setFlowTitle] = useState('')
+export default function SubmitFlow(props) {
+    const {flowTitle, setFlowTitle} = props;
 
     const handleSubmit = (e) => {
         e.preventDefault();

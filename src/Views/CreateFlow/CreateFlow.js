@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import {acroYogaElements} from '../../store';
+import faker from 'faker';
 
 import FlowElements from '../../Components/FlowElements/FlowElements';
 // test data used to develop making custom flows
@@ -20,8 +20,9 @@ import SubmitFlow from '../../Components/FlowDesign/SubmitFlow';
 
 
 export default function CreateFlow() {
-    const [acroElements, updateAcroElements ]  = useState(acroYogaElements);
+    
     const [selectedAcroYogaElements, setSelectedAcroYogaElements] = useState(acroYogaFlow.flowSequence);
+    const [flowTitle, setFlowTitle] = useState(faker.random.words(3))
 
     function handleOnDragEnd(result) {
         if (!result.destination) return;
@@ -43,7 +44,7 @@ export default function CreateFlow() {
                 </DescriptionSection>
                 <FlowElements />
                 <FlowDesign handleOnDragEnd={handleOnDragEnd} acroElements={selectedAcroYogaElements} />
-               <SubmitFlow />
+               <SubmitFlow flowTitle={flowTitle} setFlowTitle={setFlowTitle} />
         </ContentContainer>
         
     )
