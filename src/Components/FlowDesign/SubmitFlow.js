@@ -6,7 +6,7 @@ import Button from './Button';
 import Form from './FormContainer';
 
 export default function SubmitFlow(props) {
-    const {flowTitle, setFlowTitle} = props;
+    const {flowTitle, setFlowTitle, setSelectedAcroYogaElements} = props;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -15,7 +15,8 @@ export default function SubmitFlow(props) {
 
     const handleReset = (e) => {
         e.preventDefault();
-        setFlowTitle('')
+        // clear selected flow elements by passing in an empty array
+        setSelectedAcroYogaElements([]);
     }
 
     const handleRandomTitle = (e) => {
@@ -36,7 +37,7 @@ export default function SubmitFlow(props) {
                         Save Flow   
                     </Button>
                     <Button type='reset' onClick={e => handleReset(e)}>
-                        Reset
+                        Clear Flow
                     </Button>
                     <Button type='button' onClick={e => handleRandomTitle(e)}>
                         Random Title
