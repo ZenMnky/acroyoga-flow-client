@@ -28,11 +28,11 @@ export default function PageNotFound() {
     return (
         <ContentContainer fullView>
             <h1>Page Not Found</h1>
-            <div>
+            <ContentContainer>
                 <h2>Something just doesn't seem quite right</h2>
                 <GifImg src={selectRandomGif()} alt='humorous gif' />
-               
-            </div>
+            </ContentContainer>
+            
 
 
         </ContentContainer>
