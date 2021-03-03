@@ -13,7 +13,7 @@ export default function Header() {
                 <h1>AcroYoga Flow</h1>  
             </Link>
             <NavContainer>
-                <NavLink to='/flows'>Flows</NavLink>
+                <NavLink to='/view/flows'>Flows</NavLink>
                 <NavLink to='/create/flow'>Create Flow</NavLink>   
             </NavContainer>
        </HeaderContainer>
