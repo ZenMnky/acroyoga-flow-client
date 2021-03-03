@@ -22,7 +22,11 @@ export default function SubmitFlow(props) {
     const handleRandomTitle = (e) => {
         e.preventDefault();
         setFlowTitle(faker.random.words(3).toLowerCase());
+    }
 
+    const handleClearTitle = (e) => {
+        e.preventDefault();
+        setFlowTitle('');
     }
 
     return (
@@ -41,6 +45,9 @@ export default function SubmitFlow(props) {
                     </Button>
                     <Button type='button' onClick={e => handleRandomTitle(e)}>
                         Random Title
+                    </Button>
+                    <Button type='button' onClick={e => handleClearTitle(e)}>
+                        Clear Title
                     </Button>
               
                 </FlexSection>   
