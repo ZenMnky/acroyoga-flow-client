@@ -17,7 +17,7 @@ export default function ViewFlows() {
     </div>
   ));
   return (
-    <ContentContainer>
+    <ContentContainer fullView>
       <h1>View Flows</h1>
       {listOfFlows}
     </ContentContainer>
