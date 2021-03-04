@@ -31,15 +31,16 @@ export default function SubmitFlow(props) {
         e.preventDefault();
         // clear selected flow elements by passing in an empty array
         setSelectedAcroYogaElements([]);
+        handleClearTitle();
     }
 
     const handleRandomTitle = (e) => {
-        e.preventDefault();
+       
         setFlowTitle(faker.random.words(3).toLowerCase());
     }
 
-    const handleClearTitle = (e) => {
-        e.preventDefault();
+    const handleClearTitle = () => {
+        
         setFlowTitle('');
     }
 
