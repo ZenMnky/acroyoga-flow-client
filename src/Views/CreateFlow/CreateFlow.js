@@ -34,7 +34,7 @@ export default function CreateFlow() {
         let title = flowTitle.trim();
         let slug = title.toLowerCase();
         slug = slug.replace(/(\s)+/g, '-');
-        slug = slug.replace(/(\')+/g, '');
+        slug = slug.replace(/(')+/g, '');
         // construct the new flow object
         let newFlow = {
             flowTitle: title,

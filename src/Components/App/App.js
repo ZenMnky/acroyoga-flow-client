@@ -28,7 +28,6 @@ export const SavedFlowsContext = React.createContext();
 
 function App() {
   const [savedFlows, setSavedFlows] = useState(testSavedFlowsData);
-  console.log('savedFlows: ', savedFlows);
 
   return (
     <div className="App">
@@ -39,7 +38,7 @@ function App() {
           <Route exact path='/' component={LandingPage} />
           <Route exact path='/create/flow' component={CreateFlow} />
           <Route exact path='/view/flows' component={ViewFlows} />
-          <Route path='/view/flows/:flowName' component={ViewSpecificFlow} />
+          <Route path='/view/flows/:flowSlug' component={ViewSpecificFlow} />
           <Route component={PageNotFound} />
         </Switch>
         </SavedFlowsContext.Provider>
