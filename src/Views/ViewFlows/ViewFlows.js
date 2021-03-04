@@ -10,6 +10,7 @@ export default function ViewFlows() {
         return(
             <div key={cuid()}>
                 <h2>{flowItem.flowTitle}</h2>
+                <p>{flowItem.flowSlug}</p>
             </div>
         )
     })
