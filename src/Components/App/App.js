@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Route, Switch} from 'react-router-dom';
+import React, { useState } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -9,7 +9,6 @@ import CreateFlow from '../../Views/CreateFlow/CreateFlow';
 import ViewFlows from '../../Views/ViewFlows/ViewFlows';
 import testSavedFlowsData from '../../testSavedFlowsData';
 import ViewSpecificFlow from '../../Views/ViewSpecificFlow/ViewSpecificFlow';
-
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -33,15 +32,15 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <Header />
-      <SavedFlowsContext.Provider value={{savedFlows, setSavedFlows}}>
+      <SavedFlowsContext.Provider value={{ savedFlows, setSavedFlows }}>
         <Switch>
-          <Route exact path='/' component={LandingPage} />
-          <Route exact path='/create/flow' component={CreateFlow} />
-          <Route exact path='/view/flows' component={ViewFlows} />
-          <Route path='/view/flows/:flowSlug' component={ViewSpecificFlow} />
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/create/flow" component={CreateFlow} />
+          <Route exact path="/view/flows" component={ViewFlows} />
+          <Route path="/view/flows/:flowSlug" component={ViewSpecificFlow} />
           <Route component={PageNotFound} />
         </Switch>
-        </SavedFlowsContext.Provider>
+      </SavedFlowsContext.Provider>
       <Footer />
     </div>
   );

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const GifImg = styled.img`
     border-radius: 10px;

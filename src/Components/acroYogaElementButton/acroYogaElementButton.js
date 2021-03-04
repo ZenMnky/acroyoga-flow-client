@@ -1,5 +1,4 @@
-
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const AcroYogaElementButton = styled.button`
     padding: 5px 10px;
