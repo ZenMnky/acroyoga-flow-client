@@ -2,7 +2,8 @@ import cuid from 'cuid';
 
 const testSavedFlowsData = [
     {
-        flowTitle: 'My first Flow',
+        flowTitle: 'My First Flow',
+        flowSlug: 'my-first-flow',
         flowSequence:
             [ 
                 {
@@ -34,7 +35,8 @@ const testSavedFlowsData = [
     },
     {
         flowTitle: 'My Second Flow',
-        flowSequence:
+        flowSlug: 'my-second-flow',
+        flowSequence: 
             [ 
                 {
                     id: cuid(),

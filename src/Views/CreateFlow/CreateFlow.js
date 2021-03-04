@@ -31,9 +31,14 @@ export default function CreateFlow() {
     const handleSaveFlow = () => {
         console.log('handleSaveFlow fired')
         
+        let title = flowTitle.trim();
+        let slug = title.toLowerCase();
+        slug = slug.replace(/(\s)+/g, '-');
+        slug = slug.replace(/(')+/g, '');
         // construct the new flow object
         let newFlow = {
-            flowTitle: flowTitle.trim(),
+            flowTitle: title,
+            flowSlug: slug,
             flowSequence: [...selectedAcroYogaElements]
         };
     

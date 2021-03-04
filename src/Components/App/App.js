@@ -8,6 +8,7 @@ import PageNotFound from '../../Views/PageNotFound/PageNotFound';
 import CreateFlow from '../../Views/CreateFlow/CreateFlow';
 import ViewFlows from '../../Views/ViewFlows/ViewFlows';
 import testSavedFlowsData from '../../testSavedFlowsData';
+import ViewSpecificFlow from '../../Views/ViewSpecificFlow/ViewSpecificFlow';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -27,7 +28,6 @@ export const SavedFlowsContext = React.createContext();
 
 function App() {
   const [savedFlows, setSavedFlows] = useState(testSavedFlowsData);
-  console.log('savedFlows: ', savedFlows);
 
   return (
     <div className="App">
@@ -37,7 +37,8 @@ function App() {
         <Switch>
           <Route exact path='/' component={LandingPage} />
           <Route exact path='/create/flow' component={CreateFlow} />
-          <Route path='/view/flows' component={ViewFlows} />
+          <Route exact path='/view/flows' component={ViewFlows} />
+          <Route path='/view/flows/:flowSlug' component={ViewSpecificFlow} />
           <Route component={PageNotFound} />
         </Switch>
         </SavedFlowsContext.Provider>
