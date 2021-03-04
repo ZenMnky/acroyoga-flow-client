@@ -6,6 +6,7 @@ import AcroFlowElementsList from '../../Components/FlowDesign/AcroFlowElementsLi
 import AcroFlowElementsThumb from '../../Components/FlowDesign/AcroFlowElementsThumb';
 import Button from '../../Components/FlowDesign/Button';
 // import cuid from 'cuid';
+import {ReactComponent as LeftArrow} from '../../assets/left-arrow.svg';
 
 export default function ViewSpecificFlow() {
   const { savedFlows } = useContext(SavedFlowsContext);
@@ -46,7 +47,7 @@ export default function ViewSpecificFlow() {
       </AcroFlowElementsList>
 
       <Button type="button" onClick={() => history.push('/view/flows')}>
-        &#129040; Back to Flows
+        <LeftArrow title='left arrow' /> Back to Flows
       </Button>
 
     </section>
