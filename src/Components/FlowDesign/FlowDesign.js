@@ -19,7 +19,7 @@ function FlowDesign(props) {
               {...provided.droppableProps}
               ref={provided.innerRef}
             >
-              {acroElements.map(({ id, name, thumb }, index) => (
+              {acroElements.map(({ id, elementName, elementThumbUrl }, index) => (
                 <Draggable key={id} draggableId={id} index={index}>
                   {(provided) => (
                     <li
@@ -28,10 +28,10 @@ function FlowDesign(props) {
                         {...provided.dragHandleProps}
                       >
                         <AcroFlowElementsThumb>
-                            <img src={thumb} alt={`${name} Thumb`} />
+                            <img src={elementThumbUrl} alt={`${elementName} Thumb`} />
                           </AcroFlowElementsThumb>
                         <p>
-                            { name }
+                            { elementName }
                           </p>
                       </li>
                   )}

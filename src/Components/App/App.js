@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
+import config from '../../config';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import LandingPage from '../../Views/LandingPage/LandingPage';
@@ -9,6 +10,8 @@ import CreateFlow from '../../Views/CreateFlow/CreateFlow';
 import ViewFlows from '../../Views/ViewFlows/ViewFlows';
 import testSavedFlowsData from '../../testSavedFlowsData';
 import ViewSpecificFlow from '../../Views/ViewSpecificFlow/ViewSpecificFlow';
+
+const API_BASE = config.API_BASE_ENDPOINT;
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -30,14 +33,45 @@ const GlobalStyle = createGlobalStyle`
 
 export const SavedFlowsContext = React.createContext();
 
+
 function App() {
   const [savedFlows, setSavedFlows] = useState(testSavedFlowsData);
+  const [acroElements, setAcroElements] = useState([]);
+
+
+  useEffect(() => {
+
+    const fetchElements = async () => {
+      try {
+        const elementsResponse = await fetch(`${API_BASE}/acroelements`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        const acroElements = await elementsResponse.json();
+        console.log('fetchElements ran');
+        setAcroElements(acroElements);
+
+      } catch (error) {
+        console.error(error)
+      }
+    };
+
+    fetchElements();
+
+
+  }, [])
+
+
+
+
 
   return (
     <div className="App">
       <GlobalStyle />
       <Header />
-      <SavedFlowsContext.Provider value={{ savedFlows, setSavedFlows }}>
+      <SavedFlowsContext.Provider value={{ savedFlows, setSavedFlows, acroElements }}>
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/create/flow" component={CreateFlow} />

@@ -27,12 +27,15 @@ export default function CreateFlow() {
   const history = useHistory();
 
   const handleSaveFlow = () => {
-    console.log('handleSaveFlow fired');
-
+    //grab the title and trim
     const title = flowTitle.trim();
+
+    //replace whitespace with a dash
+    //remove apostrophes
     let slug = title.toLowerCase();
     slug = slug.replace(/(\s)+/g, '-');
     slug = slug.replace(/(')+/g, '');
+
     // construct the new flow object
     const newFlow = {
       flowTitle: title,

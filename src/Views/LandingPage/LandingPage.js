@@ -23,7 +23,8 @@ export default function LandingPage() {
           </p>
           <p>{`Any flows you create will not persist. 
               Once you reload or leave the site, the flows are gone. 
-              They exist only in your browser while you're on this site.`}</p>
+              They exist only in your browser while you're on this site.`}
+          </p>
         </DescriptionSection>
         <DescriptionSection>
           <h3>Tech</h3>

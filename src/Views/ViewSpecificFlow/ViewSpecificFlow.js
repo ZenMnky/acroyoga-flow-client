@@ -29,17 +29,17 @@ export default function ViewSpecificFlow() {
     <section>
       <h1>{flowTitle}</h1>
       <AcroFlowElementsList>
-        {flowSequence.map(({ id, name, thumb }, index) => (
+        {flowSequence.map(({ id, elementName, elementThumbUrl }, index) => (
 
           <li key={id}>
             <div>
               <AcroFlowElementsThumb>
-                <img src={thumb} alt={`${name} Thumb`} />
+                <img src={elementThumbUrl} alt={`${elementName} Thumb`} />
               </AcroFlowElementsThumb>
             </div>
 
             <p>
-              { name }
+              { elementName }
             </p>
           </li>
 
