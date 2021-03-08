@@ -90,7 +90,7 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <Header />
-      <SavedFlowsContext.Provider value={{ savedFlows, setSavedFlows, acroElements, flowsLoading }}>
+      <SavedFlowsContext.Provider value={{ savedFlows, setSavedFlows, acroElements, flowsLoading, elementsLoading }}>
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/create/flow" component={CreateFlow} />

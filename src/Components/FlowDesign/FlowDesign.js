@@ -21,7 +21,7 @@ function FlowDesign(props) {
               ref={provided.innerRef}
             >
               {acroElements.map(({ id, elementName, elementThumbUrl }, index) => (
-                <Draggable key={faker.random.uuid()} draggableId={id} index={index}>
+                <Draggable key={`${id}-${index}`} draggableId={`${id}-${index}`} index={index}>
                   {(provided) => (
                     <li
                         ref={provided.innerRef}

@@ -14,7 +14,6 @@ export default function Header() {
       <NavContainer>
         <NavLink to="/view/flows">Flows</NavLink>
         <NavLink to="/create/flow">Create Flow</NavLink>
-        <NavLink to="/404">404</NavLink>
       </NavContainer>
     </HeaderContainer>
 

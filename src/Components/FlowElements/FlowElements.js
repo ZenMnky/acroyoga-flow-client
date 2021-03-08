@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import faker from 'faker';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 
 // styled components
@@ -9,7 +11,7 @@ import { SavedFlowsContext } from '../App/App';
 
 function FlowElements({ selectedAcroYogaElements, setSelectedAcroYogaElements }) {
   // grab the array of element objects from state
-  const {acroElements} = useContext(SavedFlowsContext);
+  const {acroElements, elementsLoading} = useContext(SavedFlowsContext);
 
 
   // when the acroyoga element button is clicked,
@@ -46,11 +48,25 @@ function FlowElements({ selectedAcroYogaElements, setSelectedAcroYogaElements })
     </AcroYogaElementButton>
   ));
 
+  const loadingMessage = () => {
+    return (
+    <div>
+      <h2>Loading...</h2>
+      <FontAwesomeIcon icon={faSpinner} className='fa-7x' spin/>
+    </div>
+    )
+  }
+
+  let view = (elementsLoading)
+  ? loadingMessage()
+  : AcroYogaElementButtons
+
+
   return (
     <section id="flowBuilder_elements-section">
       <h2>AcroYoga Elements</h2>
       <div id="flowBuilder_elements-section_elements">
-        {AcroYogaElementButtons}
+        {view}
       </div>
     </section>
   );
