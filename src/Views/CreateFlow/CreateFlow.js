@@ -17,12 +17,10 @@ import DescriptionSection from '../../Components/DescriptionSection/DescriptionS
 import FlowDesign from '../../Components/FlowDesign/FlowDesign';
 import SubmitFlow from '../../Components/FlowDesign/SubmitFlow';
 
-// test data used to develop making custom flows
-import acroYogaFlow from '../../testAcroYogaFlowArrays';
 
 export default function CreateFlow() {
   const { savedFlows, setSavedFlows } = useContext(SavedFlowsContext);
-  const [selectedAcroYogaElements, setSelectedAcroYogaElements] = useState(acroYogaFlow.flowSequence);
+  const [selectedAcroYogaElements, setSelectedAcroYogaElements] = useState([]);
   const [flowTitle, setFlowTitle] = useState('');
   const history = useHistory();
 
