@@ -6,28 +6,22 @@ export default function LandingPage() {
 
   return (
     <ContentContainer fullView>
-      <h1>Landing Page</h1>
+      <h1>About</h1>
       <div>
-        <h2>Tell me about this thing</h2>
+      <img src='https://i.ibb.co/jbvpGct/Justin-lexi-acro-art.png' alt='groovy acroyoga' />
         <DescriptionSection>
-          <h3>Idea</h3>
-          <p>{`I wanted a way to create a visual reference of AcroYoga flows`}</p>
+          
+          <h3>{`🎯 Primary goal of the app:`}</h3>
+          <p>{`Help AcroYoga practitioners develop a flow by allowing users to Create, Save, and Share (via url) an AcroYoga sequence that is comprised of position images and the position names (aka 'acroyoga elements')`}</p>
         </DescriptionSection>
         <DescriptionSection>
-          <h3> Functionality </h3>
+          <h3>🤸‍♂️ Functionality </h3>
           <p>
-            {`Currently, this is Front-End only, and state is transient.`}
-          </p>
-          <p>
-            {`What the heck does that mean in practice?`}
-          </p>
-          <p>{`Any flows you create will not persist. 
-              Once you reload or leave the site, the flows are gone. 
-              They exist only in your browser while you're on this site.`}
+            {`Create an AcroYoga flow, name it, save it, and view it 😁`}
           </p>
         </DescriptionSection>
         <DescriptionSection>
-          <h3>Tech</h3>
+          <h3>👨‍💻 Tech</h3>
           <p>PERN Stack: PostgreSQL, Express, React, Node</p>
           <p>Special Note: Using hooks and styled components</p>
         </DescriptionSection>

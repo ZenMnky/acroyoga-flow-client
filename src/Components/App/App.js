@@ -19,10 +19,13 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: Open-Sans, Helvetica, Sans-Serif;
     
-    
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  a:visited {
+    color: black;
   }
 
   ul {
