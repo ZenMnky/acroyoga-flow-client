@@ -37,7 +37,7 @@ export default function CreateFlow() {
     // construct the new flow object
     const newFlow = {
       flowTitle: title,
-      flowSlug: slug,
+      flowSlugTitle: slug,
       flowSequence: [...selectedAcroYogaElements],
     };
 
@@ -50,13 +50,19 @@ export default function CreateFlow() {
     // update context
     setSavedFlows(savedFlowsCopy);
 
+    // update API
+
+
     // reroute to the view flows page
     history.push('/view/flows');
   };
 
   function handleOnDragEnd(result) {
+
+    // handles dragging a card to the left or right ( no change in list position)
     if (!result.destination) return;
 
+    // handles dragging a card to the bottom position
     const acroYogaFlowDraft = Array.from(selectedAcroYogaElements);
     const [reorderedAcroYogaFlowDraft] = acroYogaFlowDraft.splice(result.source.index, 1);
     acroYogaFlowDraft.splice(result.destination.index, 0, reorderedAcroYogaFlowDraft);

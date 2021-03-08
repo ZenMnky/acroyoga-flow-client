@@ -22,7 +22,7 @@ export default function ViewSpecificFlow() {
   // validate
   if (!matchingFlow) {
     console.error('unable to finding a flow that matches the provided flow slug title');
-    history.push('/404');
+    history.push('/404-no-matching-flow-found');
   }
 
   // destructure

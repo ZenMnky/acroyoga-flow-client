@@ -37,6 +37,8 @@ export const SavedFlowsContext = React.createContext();
 function App() {
   const [savedFlows, setSavedFlows] = useState([]);
   const [acroElements, setAcroElements] = useState([]);
+  const [elementsLoading, setElementsLoading] = useState(true);
+  const [flowsLoading, setFlowsLoading] = useState(true);
 
 
   useEffect(() => {
@@ -50,8 +52,9 @@ function App() {
           }
         });
         const acroElements = await elementsResponse.json();
-        console.log('fetchElements ran');
+
         setAcroElements(acroElements);
+        setElementsLoading(acroElements ? false : true)
 
       } catch (error) {
         console.error(error)
@@ -69,6 +72,7 @@ function App() {
         const savedFlows = await savedFlowsResponse.json();
         console.log('fetchSavedFlows ran');
         setSavedFlows(savedFlows)
+        setFlowsLoading(savedFlows ? false : true)
 
       } catch (error) {
         console.error(error)
