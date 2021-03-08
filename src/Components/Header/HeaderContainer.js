@@ -11,6 +11,7 @@ export default styled.header`
 
     a {
         text-decoration: none;
+        margin: 0 15px;
     }
 
     a:visited {
