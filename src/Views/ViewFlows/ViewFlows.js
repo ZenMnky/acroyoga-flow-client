@@ -3,9 +3,11 @@ import cuid from 'cuid';
 import { Link } from 'react-router-dom';
 import ContentContainer from '../../Components/FlowDesign/ContentContainer';
 import { SavedFlowsContext } from '../../Components/App/App';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 export default function ViewFlows() {
-  const { savedFlows } = useContext(SavedFlowsContext);
+  const { savedFlows, flowsLoading } = useContext(SavedFlowsContext);
 
   const listOfFlows = savedFlows.map((flowItem) => (
     <div key={cuid()}>
@@ -16,10 +18,22 @@ export default function ViewFlows() {
       <p>{flowItem.flowSlugTitle}</p>
     </div>
   ));
+
+  const loadingMessage = () => {
+    return (
+    <div>
+      <h2>Loading...</h2>
+      <FontAwesomeIcon icon={faSpinner} className='fa' spin/>
+    </div>
+    )
+  }
+
+  let view = (flowsLoading) ? loadingMessage() : listOfFlows;
+
   return (
     <ContentContainer fullView>
       <h1>View Flows</h1>
-      {listOfFlows}
+      {view}
     </ContentContainer>
   );
 }
