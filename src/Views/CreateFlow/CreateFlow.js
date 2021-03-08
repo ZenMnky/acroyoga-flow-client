@@ -34,11 +34,14 @@ export default function CreateFlow() {
     slug = slug.replace(/(\s)+/g, '-');
     slug = slug.replace(/(')+/g, '');
 
+    let flowSequenceSlugs = selectedAcroYogaElements.map(element => {
+      return element.elementSlugId
+    })
     // construct the new flow object
     const newFlow = {
       flowTitle: title,
       flowSlugTitle: slug,
-      flowSequence: [...selectedAcroYogaElements],
+      flowSequence: flowSequenceSlugs,
     };
 
     // copy existing flows
