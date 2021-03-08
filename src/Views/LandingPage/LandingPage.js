@@ -1,6 +1,6 @@
 import React from 'react';
-import DescriptionSection from '../../Components/DescriptionSection/DescriptionSection';
-import ContentContainer from '../../Components/FlowDesign/ContentContainer';
+import DescriptionSection from '../../Components/StyledComponents/DescriptionSection';
+import ContentContainer from '../../Components/StyledComponents/ContentContainer';
 
 export default function LandingPage() {
 

@@ -6,7 +6,7 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 
 // styled components
-import AcroYogaElementButton from '../AcroYogaElementButton/AcroYogaElementButton';
+import AcroYogaElementButton from '../StyledComponents/AcroYogaElementButton';
 import { SavedFlowsContext } from '../App/App';
 
 function FlowElements({ selectedAcroYogaElements, setSelectedAcroYogaElements }) {

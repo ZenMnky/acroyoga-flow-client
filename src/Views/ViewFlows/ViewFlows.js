@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import cuid from 'cuid';
 import { Link } from 'react-router-dom';
-import ContentContainer from '../../Components/FlowDesign/ContentContainer';
+import ContentContainer from '../../Components/StyledComponents/ContentContainer';
 import { SavedFlowsContext } from '../../Components/App/App';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';

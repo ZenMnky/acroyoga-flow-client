@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import faker from 'faker';
-import TextInputField from './TextInputField';
-import FlexSection from './FlexSection';
-import Button from './Button';
-import Form from './FormContainer';
+import TextInputField from '../StyledComponents/TextInputField';
+import FlexSection from '../StyledComponents/FlexSection';
+import Button from '../StyledComponents/Button';
+import Form from '../StyledComponents/FormContainer';
 
 function SubmitFlow(props) {
   const {

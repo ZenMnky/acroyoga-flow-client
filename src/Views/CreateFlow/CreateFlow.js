@@ -12,10 +12,10 @@ import { SavedFlowsContext } from '../../Components/App/App';
 import FlowElements from '../../Components/FlowElements/FlowElements';
 
 // styled components
-import ContentContainer from '../../Components/FlowDesign/ContentContainer';
-import DescriptionSection from '../../Components/DescriptionSection/DescriptionSection';
+import ContentContainer from '../../Components/StyledComponents/ContentContainer';
+import DescriptionSection from '../../Components/StyledComponents/DescriptionSection';
 import FlowDesign from '../../Components/FlowDesign/FlowDesign';
-import SubmitFlow from '../../Components/FlowDesign/SubmitFlow';
+import SubmitFlow from '../../Components/SubmitFlow/SubmitFlow';
 import config from '../../config';
 
 

@@ -2,8 +2,8 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
 // Styled Components
-import HeaderContainer from './HeaderContainer';
-import NavContainer from './NavContainer';
+import HeaderContainer from '../StyledComponents/HeaderContainer';
+import NavContainer from '../StyledComponents/NavContainer';
 
 export default function Header() {
   return (

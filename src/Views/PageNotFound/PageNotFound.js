@@ -1,6 +1,6 @@
 import React from 'react';
-import ContentContainer from '../../Components/FlowDesign/ContentContainer';
-import GifImg from './GifyImg';
+import ContentContainer from '../../Components/StyledComponents/ContentContainer';
+import GifImg from '../../Components/StyledComponents/GifyImg';
 
 export default function PageNotFound() {
   const gifyOption = [
