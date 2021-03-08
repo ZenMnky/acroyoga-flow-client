@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { SavedFlowsContext } from '../../Components/App/App';
+import cuid from 'cuid';
 // styled components
 import ContentContainer from '../../Components/FlowDesign/ContentContainer';
 import AcroFlowElementsList from '../../Components/FlowDesign/AcroFlowElementsList';
@@ -9,8 +10,9 @@ import Button from '../../Components/FlowDesign/Button';
 // svg
 import {ReactComponent as LeftArrow} from '../../assets/left-arrow.svg';
 
+
 export default function ViewSpecificFlow() {
-  const { savedFlows } = useContext(SavedFlowsContext);
+  const { savedFlows, acroElements } = useContext(SavedFlowsContext);
   const params = useParams();
   const history = useHistory();
 
@@ -19,23 +21,38 @@ export default function ViewSpecificFlow() {
 
   // validate
   if (!matchingFlow) {
+    console.error('unable to finding a flow that matches the provided flow slug title');
     history.push('/404');
   }
 
   // destructure
+  // flowTitle is a string
+  // flowSequence is an array of acro element slug-names
   const { flowTitle, flowSequence } = matchingFlow;
-  // construct view
 
+
+  // using the array of acro element slug-names
+  // grab the needed information by searching state for the matching elements
+  let expandedFlowSequence = flowSequence.map(acroElementSlug => {
+    let matchingElement = acroElements.find(acroElement => acroElement.elementSlugId === acroElementSlug)
+    return matchingElement;
+  })
+
+  // construct view
   const view = (
     <section>
       <h1>{flowTitle}</h1>
       <AcroFlowElementsList>
-        {flowSequence.map(({ id, elementName, elementThumbUrl }, index) => (
+        {expandedFlowSequence.map(({ elementName, elementThumbUrl }) => (
+          
 
-          <li key={id}>
+          <li key={cuid()}>
             <div>
               <AcroFlowElementsThumb>
-                <img src={elementThumbUrl} alt={`${elementName} Thumb`} />
+                <img 
+                  src={elementThumbUrl ? elementThumbUrl : 'https://via.placeholder.com/200.jpg?text=loading+image' } 
+                  alt={`${elementName ? elementName : 'loading'} Thumb`} 
+                />
               </AcroFlowElementsThumb>
             </div>
 
