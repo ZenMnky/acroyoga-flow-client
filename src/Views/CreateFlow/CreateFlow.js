@@ -108,6 +108,7 @@ export default function CreateFlow() {
       <SubmitFlow
         flowTitle={flowTitle}
         setFlowTitle={setFlowTitle}
+        selectedAcroYogaElements={selectedAcroYogaElements}
         setSelectedAcroYogaElements={(x) => setSelectedAcroYogaElements(x)}
         handleSaveFlow={handleSaveFlow}
       />

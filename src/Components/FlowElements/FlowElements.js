@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import cuid from 'cuid';
-// import { acroYogaElements } from '../../store';
+import faker from 'faker';
+
 
 // styled components
 import AcroYogaElementButton from '../AcroYogaElementButton/AcroYogaElementButton';
@@ -21,7 +21,7 @@ function FlowElements({ selectedAcroYogaElements, setSelectedAcroYogaElements })
     const matchingAcroElement = acroElements.find((element) => element.elementName === acroElementName);
 
     // give it a unique id key-value with cuid()
-    matchingAcroElement.id = cuid();
+    matchingAcroElement.id = faker.random.uuid();
 
     // make a copy of the existing selection of elements
     const newSelectedAcroYogaElements = [...selectedAcroYogaElements];

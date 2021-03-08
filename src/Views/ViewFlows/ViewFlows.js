@@ -23,7 +23,7 @@ export default function ViewFlows() {
     return (
     <div>
       <h2>Loading...</h2>
-      <FontAwesomeIcon icon={faSpinner} className='fa' spin/>
+      <FontAwesomeIcon icon={faSpinner} className='fa-7x' spin/>
     </div>
     )
   }

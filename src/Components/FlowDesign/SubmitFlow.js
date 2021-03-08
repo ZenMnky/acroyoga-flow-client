@@ -8,9 +8,10 @@ import Form from './FormContainer';
 
 function SubmitFlow(props) {
   const {
-    flowTitle, setFlowTitle, setSelectedAcroYogaElements, handleSaveFlow,
+    flowTitle, setFlowTitle, setSelectedAcroYogaElements, handleSaveFlow, selectedAcroYogaElements
   } = props;
   const [isTitleValid, setIsTitleValid] = useState(true);
+  const [isFlowValid, setIsFlowValid] = useState(true);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,8 +22,19 @@ function SubmitFlow(props) {
     if (title.length < 3) {
       setIsTitleValid(false);
       return;
+    } else {
+      setIsTitleValid(true);
     }
-    setIsTitleValid(true);
+    
+
+    // flow must contain at least three elements
+    if(!selectedAcroYogaElements || selectedAcroYogaElements.length < 3){
+      setIsFlowValid(false);
+      return;
+    } else {
+      setIsFlowValid(true)
+    }
+    
 
     // add new flow to the library
     // redirect user to the view page of the new flow
@@ -48,11 +60,16 @@ function SubmitFlow(props) {
     <p>Title must be at least three letters</p>
   );
 
+  const flowValidationMessage = (
+    <p>Flow must contain at least three elements</p>
+  )
+
   return (
     <section>
       <Form>
         <label htmlFor="flow-title">Flow Title</label>
         {isTitleValid ? '' : titleValidationMessage}
+        {isFlowValid ? '' : flowValidationMessage}
         <TextInputField type="text" name="flow-title" value={flowTitle} onChange={(e) => setFlowTitle(e.target.value)} required />
 
         <FlexSection>
@@ -81,6 +98,7 @@ SubmitFlow.propTypes = {
     setFlowTitle: PropTypes.func, 
     setSelectedAcroYogaElements: PropTypes.func, 
     handleSaveFlow: PropTypes.func,
+    selectedAcroYogaElements: PropTypes.array
 }
 
 export default SubmitFlow;
