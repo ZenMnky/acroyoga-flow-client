@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import faker from 'faker';
 
 // styled components
 import AcroFlowElementsList from './AcroFlowElementsList';
@@ -19,8 +20,8 @@ function FlowDesign(props) {
               {...provided.droppableProps}
               ref={provided.innerRef}
             >
-              {acroElements.map(({ id, name, thumb }, index) => (
-                <Draggable key={id} draggableId={id} index={index}>
+              {acroElements.map(({ id, elementName, elementThumbUrl }, index) => (
+                <Draggable key={`${id}-${index}`} draggableId={`${id}-${index}`} index={index}>
                   {(provided) => (
                     <li
                         ref={provided.innerRef}
@@ -28,10 +29,10 @@ function FlowDesign(props) {
                         {...provided.dragHandleProps}
                       >
                         <AcroFlowElementsThumb>
-                            <img src={thumb} alt={`${name} Thumb`} />
+                            <img src={elementThumbUrl} alt={`${elementName} Thumb`} />
                           </AcroFlowElementsThumb>
                         <p>
-                            { name }
+                            { elementName }
                           </p>
                       </li>
                   )}

@@ -16,28 +16,33 @@ import ContentContainer from '../../Components/FlowDesign/ContentContainer';
 import DescriptionSection from '../../Components/DescriptionSection/DescriptionSection';
 import FlowDesign from '../../Components/FlowDesign/FlowDesign';
 import SubmitFlow from '../../Components/FlowDesign/SubmitFlow';
+import config from '../../config';
 
-// test data used to develop making custom flows
-import acroYogaFlow from '../../testAcroYogaFlowArrays';
 
 export default function CreateFlow() {
   const { savedFlows, setSavedFlows } = useContext(SavedFlowsContext);
-  const [selectedAcroYogaElements, setSelectedAcroYogaElements] = useState(acroYogaFlow.flowSequence);
+  const [selectedAcroYogaElements, setSelectedAcroYogaElements] = useState([]);
   const [flowTitle, setFlowTitle] = useState('');
   const history = useHistory();
 
   const handleSaveFlow = () => {
-    console.log('handleSaveFlow fired');
-
+    //grab the title and trim
     const title = flowTitle.trim();
+
+    //replace whitespace with a dash
+    //remove apostrophes
     let slug = title.toLowerCase();
     slug = slug.replace(/(\s)+/g, '-');
     slug = slug.replace(/(')+/g, '');
+
+    let flowSequenceSlugs = selectedAcroYogaElements.map(element => {
+      return element.elementSlugId
+    })
     // construct the new flow object
     const newFlow = {
       flowTitle: title,
-      flowSlug: slug,
-      flowSequence: [...selectedAcroYogaElements],
+      flowSlugTitle: slug,
+      flowSequence: flowSequenceSlugs,
     };
 
     // copy existing flows
@@ -49,13 +54,34 @@ export default function CreateFlow() {
     // update context
     setSavedFlows(savedFlowsCopy);
 
+    // update API
+    const postNewFlow = async (newFlow) => {
+      try {
+        const postFlowResponse = await fetch(`${config.API_BASE_ENDPOINT}/flows`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(newFlow)
+        })
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
+    postNewFlow(newFlow);
+
+
     // reroute to the view flows page
     history.push('/view/flows');
   };
 
   function handleOnDragEnd(result) {
+
+    // handles dragging a card to the left or right ( no change in list position)
     if (!result.destination) return;
 
+    // handles dragging a card to the bottom position
     const acroYogaFlowDraft = Array.from(selectedAcroYogaElements);
     const [reorderedAcroYogaFlowDraft] = acroYogaFlowDraft.splice(result.source.index, 1);
     acroYogaFlowDraft.splice(result.destination.index, 0, reorderedAcroYogaFlowDraft);
@@ -82,6 +108,7 @@ export default function CreateFlow() {
       <SubmitFlow
         flowTitle={flowTitle}
         setFlowTitle={setFlowTitle}
+        selectedAcroYogaElements={selectedAcroYogaElements}
         setSelectedAcroYogaElements={(x) => setSelectedAcroYogaElements(x)}
         handleSaveFlow={handleSaveFlow}
       />

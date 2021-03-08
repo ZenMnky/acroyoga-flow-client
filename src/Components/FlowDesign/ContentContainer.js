@@ -10,6 +10,19 @@ const ContentContainer = styled.article`
     font-size: calc(10px + 1.5vmin);
     text-align: center;
     min-height: ${(props) => (props.fullView ? '100vh' : 'auto')};
+
+    img {
+        width: 100%;
+        height: auto;
+        max-width: 80vw;
+    }
+
+    @media (min-width: 768px){
+        img {
+            max-height: 50vh;
+            width: auto;
+        }
+    }
 `;
 
 export default ContentContainer;
