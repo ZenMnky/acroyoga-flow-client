@@ -9,11 +9,11 @@ export default function ViewFlows() {
 
   const listOfFlows = savedFlows.map((flowItem) => (
     <div key={cuid()}>
-      <Link to={`/view/flows/${flowItem.flowSlug}`}>
+      <Link to={`/view/flows/${flowItem.flowSlugTitle}`}>
         <h2>{flowItem.flowTitle}</h2>
       </Link>
 
-      <p>{flowItem.flowSlug}</p>
+      <p>{flowItem.flowSlugTitle}</p>
     </div>
   ));
   return (

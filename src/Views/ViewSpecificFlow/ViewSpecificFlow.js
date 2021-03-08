@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import ContentContainer from '../../Components/FlowDesign/ContentContainer';
 import { SavedFlowsContext } from '../../Components/App/App';
+// styled components
+import ContentContainer from '../../Components/FlowDesign/ContentContainer';
 import AcroFlowElementsList from '../../Components/FlowDesign/AcroFlowElementsList';
 import AcroFlowElementsThumb from '../../Components/FlowDesign/AcroFlowElementsThumb';
 import Button from '../../Components/FlowDesign/Button';
-// import cuid from 'cuid';
+// svg
 import {ReactComponent as LeftArrow} from '../../assets/left-arrow.svg';
 
 export default function ViewSpecificFlow() {
@@ -14,7 +15,7 @@ export default function ViewSpecificFlow() {
   const history = useHistory();
 
   // find the saved flow that matches the flowSlug, passed in the URL params
-  const matchingFlow = savedFlows.find((flow) => flow.flowSlug === params.flowSlug);
+  const matchingFlow = savedFlows.find((flow) => flow.flowSlugTitle === params.flowSlug);
 
   // validate
   if (!matchingFlow) {
@@ -47,7 +48,7 @@ export default function ViewSpecificFlow() {
       </AcroFlowElementsList>
 
       <Button type="button" onClick={() => history.push('/view/flows')}>
-        <LeftArrow title='left arrow' /> Back to Flows
+        <LeftArrow title='left arrow' />{' '} Back to Flows
       </Button>
 
     </section>

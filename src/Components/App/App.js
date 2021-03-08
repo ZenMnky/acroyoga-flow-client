@@ -35,7 +35,7 @@ export const SavedFlowsContext = React.createContext();
 
 
 function App() {
-  const [savedFlows, setSavedFlows] = useState(testSavedFlowsData);
+  const [savedFlows, setSavedFlows] = useState([]);
   const [acroElements, setAcroElements] = useState([]);
 
 
@@ -58,7 +58,25 @@ function App() {
       }
     };
 
+    const fetchSavedFlows = async () => {
+      try {
+        const savedFlowsResponse = await fetch(`${API_BASE}/flows`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        const savedFlows = await savedFlowsResponse.json();
+        console.log('fetchSavedFlows ran');
+        setSavedFlows(savedFlows)
+
+      } catch (error) {
+        console.error(error)
+      }
+    };
+
     fetchElements();
+    fetchSavedFlows();
 
 
   }, [])
