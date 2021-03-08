@@ -16,6 +16,7 @@ import ContentContainer from '../../Components/FlowDesign/ContentContainer';
 import DescriptionSection from '../../Components/DescriptionSection/DescriptionSection';
 import FlowDesign from '../../Components/FlowDesign/FlowDesign';
 import SubmitFlow from '../../Components/FlowDesign/SubmitFlow';
+import config from '../../config';
 
 
 export default function CreateFlow() {
@@ -54,6 +55,21 @@ export default function CreateFlow() {
     setSavedFlows(savedFlowsCopy);
 
     // update API
+    const postNewFlow = async (newFlow) => {
+      try {
+        const postFlowResponse = await fetch(`${config.API_BASE_ENDPOINT}/flows`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(newFlow)
+        })
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
+    postNewFlow(newFlow);
 
 
     // reroute to the view flows page
