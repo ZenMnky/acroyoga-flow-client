@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, Redirect } from 'react-router-dom';
 import { SavedFlowsContext } from '../../Components/App/App';
 import cuid from 'cuid';
 // styled components
@@ -21,14 +21,16 @@ export default function ViewSpecificFlow() {
 
   // validate
   if (!matchingFlow) {
-    console.error('unable to finding a flow that matches the provided flow slug title');
-    history.push('/404-no-matching-flow-found');
+    console.error('unable to find a flow that matches the provided flow slug title');
+    // history.push('/404-no-matching-flow-found');
+    return <Redirect to='/404-no-matching-flow-found' />;
   }
 
   // destructure
   // flowTitle is a string
   // flowSequence is an array of acro element slug-names
   const { flowTitle, flowSequence } = matchingFlow;
+ 
 
 
   // using the array of acro element slug-names

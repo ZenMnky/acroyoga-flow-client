@@ -23,7 +23,7 @@ import DescriptionSection from '../../StyledComponents/DescriptionSection';
 
 export default function CreateFlow() {
   const { savedFlows, setSavedFlows } = useContext(SavedFlowsContext);
-  const [selectedAcroYogaElements, setSelectedAcroYogaElements] = useState([]);
+  const [selectedAcroYogaElements, setSelectedAcroYogaElements] = useState([{}, {}]);
   const [flowTitle, setFlowTitle] = useState('');
   const history = useHistory();
 
