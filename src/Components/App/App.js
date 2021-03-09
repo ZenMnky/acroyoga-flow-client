@@ -72,7 +72,6 @@ function App() {
           }
         });
         const savedFlows = await savedFlowsResponse.json();
-        console.log('fetchSavedFlows ran');
         setSavedFlows(savedFlows)
         setFlowsLoading(savedFlows ? false : true)
 
