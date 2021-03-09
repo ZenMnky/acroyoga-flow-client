@@ -23,7 +23,7 @@ import DescriptionSection from '../../StyledComponents/DescriptionSection';
 
 export default function CreateFlow() {
   const { savedFlows, setSavedFlows } = useContext(SavedFlowsContext);
-  const [selectedAcroYogaElements, setSelectedAcroYogaElements] = useState([{}, {}]);
+  const [selectedAcroYogaElements, setSelectedAcroYogaElements] = useState([]);
   const [flowTitle, setFlowTitle] = useState('');
   const history = useHistory();
 
@@ -98,6 +98,7 @@ export default function CreateFlow() {
         <p>Use the listed elements to add cards to the design area.</p>
         <p>Drag and drop cards to order them.</p>
         <p>Once the sequence is in the desired order, save your flow with a catchy title.</p>
+        <p>This can also be done using only the keyboard. After adding your element cards, tab to select a card, press spacebar to grab it, and reorder it with the up and down arrow keys. Press the spacebar again to drop the card in place 😁</p>
       </DescriptionSection>
       <FlowElements
         selectedAcroYogaElements={selectedAcroYogaElements}
