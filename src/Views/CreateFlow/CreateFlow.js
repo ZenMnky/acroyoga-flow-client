@@ -7,16 +7,18 @@
 import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { SavedFlowsContext } from '../../Components/App/App';
+import config from '../../config';
 
 // components
 import FlowElements from '../../Components/FlowElements/FlowElements';
-
-// styled components
-import ContentContainer from '../../Components/StyledComponents/ContentContainer';
-import DescriptionSection from '../../Components/StyledComponents/DescriptionSection';
 import FlowDesign from '../../Components/FlowDesign/FlowDesign';
 import SubmitFlow from '../../Components/SubmitFlow/SubmitFlow';
-import config from '../../config';
+
+// styled components
+import ContentContainer from '../../StyledComponents/ContentContainer';
+import DescriptionSection from '../../StyledComponents/DescriptionSection';
+
+
 
 
 export default function CreateFlow() {

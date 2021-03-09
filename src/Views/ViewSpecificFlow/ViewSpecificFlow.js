@@ -3,10 +3,10 @@ import { useParams, useHistory } from 'react-router-dom';
 import { SavedFlowsContext } from '../../Components/App/App';
 import cuid from 'cuid';
 // styled components
-import ContentContainer from '../../Components/StyledComponents/ContentContainer';
-import AcroFlowElementsList from '../../Components/StyledComponents/AcroFlowElementsList';
-import AcroFlowElementsThumb from '../../Components/StyledComponents/AcroFlowElementsThumb';
-import Button from '../../Components/StyledComponents/Button';
+import ContentContainer from '../../StyledComponents/ContentContainer';
+import AcroFlowElementsList from '../../StyledComponents/AcroFlowElementsList';
+import AcroFlowElementsThumb from '../../StyledComponents/AcroFlowElementsThumb';
+import Button from '../../StyledComponents/Button';
 // svg
 import {ReactComponent as LeftArrow} from '../../assets/left-arrow.svg';
 

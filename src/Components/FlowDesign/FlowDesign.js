@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import faker from 'faker';
 
 // styled components
-import AcroFlowElementsList from '../StyledComponents/AcroFlowElementsList';
-import AcroFlowElementsThumb from '../StyledComponents/AcroFlowElementsThumb';
+import AcroFlowElementsList from '../../StyledComponents/AcroFlowElementsList';
+import AcroFlowElementsThumb from '../../StyledComponents/AcroFlowElementsThumb';
 
 function FlowDesign(props) {
   const { handleOnDragEnd, acroElements } = props;

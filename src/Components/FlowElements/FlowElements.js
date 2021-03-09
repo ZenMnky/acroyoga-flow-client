@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
+import { SavedFlowsContext } from '../App/App';
 import PropTypes from 'prop-types';
 import faker from 'faker';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-
 // styled components
-import AcroYogaElementButton from '../StyledComponents/AcroYogaElementButton';
-import { SavedFlowsContext } from '../App/App';
+import AcroYogaElementButton from '../../StyledComponents/AcroYogaElementButton';
+
 
 function FlowElements({ selectedAcroYogaElements, setSelectedAcroYogaElements }) {
   // grab the array of element objects from state
